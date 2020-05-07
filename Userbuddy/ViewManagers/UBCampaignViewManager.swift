@@ -64,7 +64,11 @@ class UBCampaignManager {
     static fileprivate func displayWithDelay(using campaign: UBCampaign) {
         isCampaignActivelyDisplayed = true
         
-        let delayTime: Double = 2 + (Double(campaign.display.delay) / 1000)
+        var systemDelay: Double = 0
+        if UIApplication.shared.windows.count == 0 {
+            systemDelay = 1
+        }
+        let delayTime: Double = systemDelay + (Double(campaign.display.delay) / 1000)
         UBDebug.log("displaying campaign \(campaign.name) in \(delayTime) seconds")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + delayTime) {
@@ -75,6 +79,9 @@ class UBCampaignManager {
                 break;
             case "Review":
                 requestReviewIfAppropriate(using: campaign)
+                break
+            case "Content":
+                displayContent(using: campaign)
                 break
             default:
                 break
@@ -88,6 +95,14 @@ class UBCampaignManager {
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         if let window = window {
             let v = UBSurveyView(frame: window.bounds, campaign: campaign)
+            window.addSubview(v)
+        }
+    }
+    
+    static fileprivate func displayContent(using campaign: UBCampaign) {
+        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        if let window = window {
+            let v = UBContentView(frame: window.bounds, campaign: campaign)
             window.addSubview(v)
         }
     }

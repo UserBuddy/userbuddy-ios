@@ -81,22 +81,37 @@ class UBModalContainer: UIView {
     func setInnerContent(_ innerContent: UIView) {
         if let cardContainer = cardContainer {
             
-            innerContent.subviews.forEach { (subview) in
-                subview.subviews.forEach { (sv) in
-                    if let sv = sv as? UILabel {
-                        sv.sizeToFit()
-                        sv.setNeedsLayout()
-                        sv.layoutIfNeeded()
-                    }
+//            innerContent.subviews.forEach { (subview) in
+//                subview.subviews.forEach { (sv) in
+//                    if let sv = sv as? UILabel {
+//                        sv.sizeToFit()
+//                        sv.setNeedsLayout()
+//                        sv.layoutIfNeeded()
+//                    }
+//                }
+//                let targetSize = CGSize(width: subview.bounds.width,
+//                    height: UIView.layoutFittingExpandedSize.height)
+//                let preferredContentSize = subview.systemLayoutSizeFitting(targetSize)
+//                setHeight(preferredContentSize.height)
+//            }
+            innerContent.subviews.forEach { (sv) in
+                if let sv = sv as? UILabel {
+                    sv.sizeToFit()
+                    sv.setNeedsLayout()
+                    sv.layoutIfNeeded()
                 }
-                let targetSize = CGSize(width: subview.bounds.width,
-                    height: UIView.layoutFittingExpandedSize.height)
-                let preferredContentSize = subview.systemLayoutSizeFitting(targetSize)
-                setHeight(preferredContentSize.height)
             }
+            let targetSize = CGSize(width: innerContent.bounds.width,
+                height: UIView.layoutFittingExpandedSize.height)
+            let preferredContentSize = innerContent.systemLayoutSizeFitting(targetSize)
+            setHeight(preferredContentSize.height)
             
             cardContainer.setInnerContent(innerContent)
         }
+    }
+    
+    func autosizeSubviews(for view: UIView) {
+        
     }
     
     

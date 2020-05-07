@@ -34,18 +34,9 @@ class UBThumbRating: UIView {
     
     var _onPress: ((Bool) -> Void)?
     
-    convenience init(frame: CGRect, question: UBQuestion, onPress: @escaping (Bool) -> Void) {
-        self.init(frame: frame)
-        let bundle = Bundle(for: UBThumbRating.self)
-        let nib = UINib(nibName: "UBThumbRating", bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-        view.frame = bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        if let view = view as? UBThumbRating {
-            view.questionText = question.title
-            view._onPress = onPress
-        }
-        self.addSubview(view)
+    func setProperties(question: UBQuestion, onPress: @escaping (Bool) -> Void) {
+        self.questionText = question.title
+        self._onPress = onPress
     }
     
     // MARK: - Required random stuff

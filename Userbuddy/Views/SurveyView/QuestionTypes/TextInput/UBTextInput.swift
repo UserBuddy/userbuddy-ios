@@ -44,31 +44,21 @@ class UBTextInput: UIView {
     var _question: UBQuestion?
     var _onPress: ((String) -> Void)?
     
-    convenience init(frame: CGRect, question: UBQuestion, onPress: @escaping (String) -> Void) {
-        self.init(frame: frame)
-        let bundle = Bundle(for: UBTextInput.self)
-        let nib = UINib(nibName: "UBTextInput", bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-        view.frame = bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        if let view = view as? UBTextInput {
-            view.questionTitle.text = question.title
-            
-            view._onPress = onPress
-            view._question = question
-            view.textInputView.becomeFirstResponder()
-            
-            if (question.required) {
-                view.noThanksButton.removeFromSuperview()
-            }
+    func setProperties(question: UBQuestion, onPress: @escaping (String) -> Void) {
+        self.questionTitle.text = question.title
+        self._onPress = onPress
+        self._question = question
+        if (question.required) {
+            self.noThanksButton.removeFromSuperview()
         }
-        self.addSubview(view)
     }
     
     // MARK: - Required random stuff
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.textInputView.becomeFirstResponder()
     }
     
     public required init?(coder aDecoder: NSCoder) {

@@ -22,6 +22,7 @@ struct UBCampaign: Codable {
 
 struct UBCampaignTypeData: Codable  {
     let survey: UBSurvey?
+    let content: UBContent?
 }
 
 // MARK: - Display
@@ -37,6 +38,13 @@ struct UBSurvey: Codable {
     let introduction: UBIntroduction?
     let questions: [UBQuestion]
     let conclusion: UBConclusion?
+}
+
+// MARK: - Content
+
+struct UBContent: Codable {
+    let type, title, subtitle, ctaText, dismissText, linkUrl: String
+    let required: Bool
 }
 
 // MARK: - Conclusion

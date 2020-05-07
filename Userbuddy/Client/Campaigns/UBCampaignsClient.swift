@@ -21,7 +21,19 @@ public class UBCampaignsClient: UBClient {
     func complete(_ campaign: UBCampaign) {
         let cpEvent = UBLogEvent(
             name: "$CampaignParticipation", params: [
-                "$campaignId": campaign.id
+                "$campaignId": campaign.id,
+                "$didParticipate": true
+            ]
+        )
+        Userbuddy.events.track(event: cpEvent)
+        UBCampaignManager.remove(campaign: campaign)
+    }
+    
+    func dismiss(_ campaign: UBCampaign) {
+        let cpEvent = UBLogEvent(
+            name: "$CampaignParticipation", params: [
+                "$campaignId": campaign.id,
+                "$didParticipate": false
             ]
         )
         Userbuddy.events.track(event: cpEvent)
@@ -31,12 +43,15 @@ public class UBCampaignsClient: UBClient {
     func getEligble() {
         let surveyJson = try! UBLoadFile.loadJSON(path: "survey-campaign")
         let reviewJson = try! UBLoadFile.loadJSON(path: "review-campaign")
+        let contentJson = try! UBLoadFile.loadJSON(path: "content-campaign")
         let decoder = JSONDecoder()
         let surveyJsonData = try! JSONSerialization.data(withJSONObject: surveyJson, options: [])
         let reviewJsonData = try! JSONSerialization.data(withJSONObject: reviewJson, options: [])
+        let contentJsonData = try! JSONSerialization.data(withJSONObject: contentJson, options: [])
         let survey = try! decoder.decode(UBCampaign.self, from: surveyJsonData)
         let review = try! decoder.decode(UBCampaign.self, from: reviewJsonData)
-        let eligibleCampaigns = [survey, review]
+        let content = try! decoder.decode(UBCampaign.self, from: contentJsonData)
+        let eligibleCampaigns = [survey, review, content]
         UBCampaignManager.register(campaigns: eligibleCampaigns)
     }
     

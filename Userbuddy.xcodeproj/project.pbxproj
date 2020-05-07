@@ -50,6 +50,11 @@
 		127F63DC2463AC1E0049D5C2 /* UBPersonClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F63DB2463AC1E0049D5C2 /* UBPersonClient.swift */; };
 		127F63E12463AF310049D5C2 /* UBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F63E02463AF310049D5C2 /* UBClient.swift */; };
 		127F63E32463B5010049D5C2 /* UBCampaignsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F63E22463B5010049D5C2 /* UBCampaignsClient.swift */; };
+		127F63E62463C2C90049D5C2 /* UBContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F63E52463C2C90049D5C2 /* UBContentView.swift */; };
+		127F63EC2463CA880049D5C2 /* UBContentLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F63EB2463CA880049D5C2 /* UBContentLinkView.swift */; };
+		127F63EE2463CB030049D5C2 /* UBContentLinkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 127F63ED2463CB030049D5C2 /* UBContentLinkView.xib */; };
+		127F63F02463D4450049D5C2 /* content-campaign.json in Resources */ = {isa = PBXBuildFile; fileRef = 127F63EF2463D4450049D5C2 /* content-campaign.json */; };
+		127F63F22463DD340049D5C2 /* UBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F63F12463DD340049D5C2 /* UBView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +114,11 @@
 		127F63DB2463AC1E0049D5C2 /* UBPersonClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBPersonClient.swift; sourceTree = "<group>"; };
 		127F63E02463AF310049D5C2 /* UBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBClient.swift; sourceTree = "<group>"; };
 		127F63E22463B5010049D5C2 /* UBCampaignsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBCampaignsClient.swift; sourceTree = "<group>"; };
+		127F63E52463C2C90049D5C2 /* UBContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBContentView.swift; sourceTree = "<group>"; };
+		127F63EB2463CA880049D5C2 /* UBContentLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBContentLinkView.swift; sourceTree = "<group>"; };
+		127F63ED2463CB030049D5C2 /* UBContentLinkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UBContentLinkView.xib; sourceTree = "<group>"; };
+		127F63EF2463D4450049D5C2 /* content-campaign.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "content-campaign.json"; sourceTree = "<group>"; };
+		127F63F12463DD340049D5C2 /* UBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +161,7 @@
 		12491B05245E48B400189E92 /* Userbuddy */ = {
 			isa = PBXGroup;
 			children = (
-				127F63D72463AB5F0049D5C2 /* SDKClient */,
+				127F63D72463AB5F0049D5C2 /* Client */,
 				127F63C8246251CE0049D5C2 /* Assets */,
 				127F63A3245FCF760049D5C2 /* ViewManagers */,
 				127F6397245FC1990049D5C2 /* JSON */,
@@ -180,6 +190,7 @@
 		12491B1D245E48B900189E92 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				127F63E42463C2890049D5C2 /* ContentView */,
 				127F63A62460D0D80049D5C2 /* Shared */,
 				12491B2F245E4AEE00189E92 /* SurveyView */,
 			);
@@ -223,6 +234,7 @@
 				127F6388245FA2200049D5C2 /* UBDateExtensions.swift */,
 				127F6393245FBBD40049D5C2 /* UBRequest.swift */,
 				127F63C324624B720049D5C2 /* UBDesignables.swift */,
+				127F63F12463DD340049D5C2 /* UBView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -243,6 +255,7 @@
 			children = (
 				127F6398245FC1B90049D5C2 /* survey-campaign.json */,
 				127F63C124611FAA0049D5C2 /* review-campaign.json */,
+				127F63EF2463D4450049D5C2 /* content-campaign.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -379,7 +392,7 @@
 			path = Properties;
 			sourceTree = "<group>";
 		};
-		127F63D72463AB5F0049D5C2 /* SDKClient */ = {
+		127F63D72463AB5F0049D5C2 /* Client */ = {
 			isa = PBXGroup;
 			children = (
 				127F63DF2463AE3D0049D5C2 /* Campaigns */,
@@ -387,7 +400,7 @@
 				127F63DD2463AC670049D5C2 /* Events */,
 				127F63E02463AF310049D5C2 /* UBClient.swift */,
 			);
-			path = SDKClient;
+			path = Client;
 			sourceTree = "<group>";
 		};
 		127F63DD2463AC670049D5C2 /* Events */ = {
@@ -412,6 +425,24 @@
 				127F63E22463B5010049D5C2 /* UBCampaignsClient.swift */,
 			);
 			path = Campaigns;
+			sourceTree = "<group>";
+		};
+		127F63E42463C2890049D5C2 /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				127F63EA2463CA650049D5C2 /* ContentTypes */,
+				127F63E52463C2C90049D5C2 /* UBContentView.swift */,
+			);
+			path = ContentView;
+			sourceTree = "<group>";
+		};
+		127F63EA2463CA650049D5C2 /* ContentTypes */ = {
+			isa = PBXGroup;
+			children = (
+				127F63EB2463CA880049D5C2 /* UBContentLinkView.swift */,
+				127F63ED2463CB030049D5C2 /* UBContentLinkView.xib */,
+			);
+			path = ContentTypes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,9 +539,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				127F63B52460DC540049D5C2 /* UBModalContainer.xib in Resources */,
+				127F63EE2463CB030049D5C2 /* UBContentLinkView.xib in Resources */,
 				127F63CD246251F00049D5C2 /* thumb-up.png in Resources */,
 				127F63AA2460D1330049D5C2 /* UBModalBackgroundView.xib in Resources */,
 				12491B33245E4B4200189E92 /* UBSurveyView.xib in Resources */,
+				127F63F02463D4450049D5C2 /* content-campaign.json in Resources */,
 				127F6399245FC1B90049D5C2 /* survey-campaign.json in Resources */,
 				127F63BE2460FE310049D5C2 /* UBTextInput.xib in Resources */,
 				127F63BB2460F24B0049D5C2 /* UBThumbRating.xib in Resources */,
@@ -544,6 +577,7 @@
 				127F63C02460FE610049D5C2 /* UBTextInput.swift in Sources */,
 				127F63E12463AF310049D5C2 /* UBClient.swift in Sources */,
 				127F6390245FB6290049D5C2 /* IPAddress.swift in Sources */,
+				127F63EC2463CA880049D5C2 /* UBContentLinkView.swift in Sources */,
 				127F637A245F77600049D5C2 /* UBService.swift in Sources */,
 				127F637E245F7C8B0049D5C2 /* UBEnvironment.swift in Sources */,
 				127F63DC2463AC1E0049D5C2 /* UBPersonClient.swift in Sources */,
@@ -552,12 +586,14 @@
 				12491B31245E4B0000189E92 /* UBSurveyView.swift in Sources */,
 				127F6367245E50190049D5C2 /* Userbuddy.swift in Sources */,
 				127F63C424624B720049D5C2 /* UBDesignables.swift in Sources */,
+				127F63E62463C2C90049D5C2 /* UBContentView.swift in Sources */,
 				127F63B32460DC480049D5C2 /* UBModalContainer.swift in Sources */,
 				127F63E32463B5010049D5C2 /* UBCampaignsClient.swift in Sources */,
 				127F6385245F9E120049D5C2 /* UBDeviceExtension.swift in Sources */,
 				127F63D92463AB850049D5C2 /* UBEventsClient.swift in Sources */,
 				127F6389245FA2200049D5C2 /* UBDateExtensions.swift in Sources */,
 				127F63B92460F2350049D5C2 /* UBThumbRating.swift in Sources */,
+				127F63F22463DD340049D5C2 /* UBView.swift in Sources */,
 				127F6383245F98500049D5C2 /* UBStringExtension.swift in Sources */,
 				127F638D245FA41C0049D5C2 /* UBPropertyValue.swift in Sources */,
 				127F63A82460D11E0049D5C2 /* UBModalBackgroundView.swift in Sources */,

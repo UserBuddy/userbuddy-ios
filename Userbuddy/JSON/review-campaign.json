@@ -1,6 +1,5 @@
 {
-  "id": "CAMPAIGN-UUID",
-  "friendlyId": "ReviewRequest",
+  "id": "REVIEW-CAMPAIGN-UUID",
   "name": "App Store Review Request",
   "createdAt": "TIMESTAMP",
   "editedAt": "TIMESTAMP",

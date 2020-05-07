@@ -23,20 +23,12 @@ public class UBSurveyView: UIView {
         self.init(frame: frame)
         
         self.campaign = campaign
-        let bundle = Bundle(for: UBSurveyView.self)
-        let nib = UINib(nibName: "UBSurveyView", bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-        view.frame = bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.addSubview(view)
         
         switch campaign.display.type {
         case "Popup":
             if campaign.display.type == "Popup" {
-                if let view = view as? UBSurveyView {
-                    self.modalContainer = UBModalContainer(frame: frame, innerContent: self.activeContentView)
-                    view.addSubview(self.modalContainer!)
-                }
+                self.modalContainer = UBModalContainer(frame: frame, innerContent: self.activeContentView)
+                self.addSubview(self.modalContainer!)
             }
             break
         default:
@@ -94,16 +86,20 @@ public class UBSurveyView: UIView {
             let onPress: (Bool) -> Void = { (isThumbUp) in
                 self.logResponse(isThumbUp, question: question)
             }
-            let view = UBThumbRating(frame: frame, question: question, onPress: onPress)
-//            modalContainer?.setHeight(200)
+            let view = UIView.initialize(using: "UBThumbRating", frame: frame)
+            if let view = view as? UBThumbRating {
+                view.setProperties(question: question, onPress: onPress)
+            }
             modalContainer?.setInnerContent(view)
             break
         case "TextInput":
             let onPress: (String) -> Void = { (textInput) in
                 self.logResponse(textInput, question: question)
             }
-            let view = UBTextInput(frame: frame, question: question, onPress: onPress)
-//            modalContainer?.setHeight(324)
+            let view = UIView.initialize(using: "UBTextInput", frame: frame)
+            if let view = view as? UBTextInput {
+                view.setProperties(question: question, onPress: onPress)
+            }
             modalContainer?.setInnerContent(view)
             break
         default:
