@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UBThumbRating" customModule="UserBuddy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skN-xa-TDv">
+                    <rect key="frame" x="32" y="20" width="350" height="104"/>
+                    <attributedString key="attributedText">
+                        <fragment content="How are you liking Userbuddy so far?">
+                            <attributes>
+                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <font key="NSFont" metaFont="systemBold" size="20"/>
+                                <font key="NSOriginalFont" metaFont="systemBold" size="20"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.3" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUW-6n-I5h">
+                    <rect key="frame" x="235" y="156" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="LP7-PJ-O92"/>
+                        <constraint firstAttribute="width" constant="40" id="LQO-h1-aiB"/>
+                    </constraints>
+                    <color key="tintColor" red="0.1529411765" green="0.68235294120000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" image="thumb-up.png">
+                        <color key="titleColor" red="0.15294117647058825" green="0.68235294117647061" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                    </state>
+                    <connections>
+                        <action selector="pressThumbsUp:" destination="iN0-l3-epB" eventType="touchUpInside" id="5F2-HO-uVN"/>
+                    </connections>
+                </button>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tG0-Dx-mex">
+                    <rect key="frame" x="139" y="156" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="97q-Af-M7U"/>
+                        <constraint firstAttribute="height" constant="40" id="EOd-vv-dJz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                    <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" image="thumb-down.png">
+                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="pressThumbsDown:" destination="iN0-l3-epB" eventType="touchUpInside" id="4eJ-CY-wlC"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="skN-xa-TDv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="3Mf-eZ-bUe"/>
+                <constraint firstItem="skN-xa-TDv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="4aT-lE-Esu"/>
+                <constraint firstItem="tG0-Dx-mex" firstAttribute="top" secondItem="skN-xa-TDv" secondAttribute="bottom" constant="32" id="JYc-NC-JOf"/>
+                <constraint firstItem="tG0-Dx-mex" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-48" id="MiS-6N-wV9"/>
+                <constraint firstItem="ZUW-6n-I5h" firstAttribute="top" secondItem="skN-xa-TDv" secondAttribute="bottom" constant="32" id="OTQ-7W-E90"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="skN-xa-TDv" secondAttribute="trailing" constant="32" id="ZNG-CL-kNa"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ZUW-6n-I5h" secondAttribute="bottom" constant="44" id="i4P-Q3-j2u"/>
+                <constraint firstItem="ZUW-6n-I5h" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="48" id="w1s-2Y-ak6"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="questionTitle" destination="skN-xa-TDv" id="pf1-cO-t1N"/>
+                <outlet property="thumbsDownButton" destination="tG0-Dx-mex" id="lqH-MQ-Yop"/>
+                <outlet property="thumbsUpButton" destination="ZUW-6n-I5h" id="exU-kt-jxA"/>
+            </connections>
+            <point key="canvasLocation" x="134.78260869565219" y="-292.63392857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="thumb-down.png" width="40" height="40"/>
+        <image name="thumb-up.png" width="40" height="40"/>
+    </resources>
+</document>

@@ -1,0 +1,141 @@
+{
+  "id": "CAMPAIGN-UUID",
+  "name": "App Sentiment Survey",
+  "createdAt": "TIMESTAMP",
+  "editedAt": "TIMESTAMP",
+  "orgEditable": false,
+  "responseRequired": true,
+  "type": "Survey",
+  "startDate": null,
+  "endDate": null,
+  "maxParticipants": null,
+  "priority": 1,
+  "repeating": true,
+  "triggers": [
+    {
+      "id": "TRIGGER-ID",
+      "criteria": [
+        {
+          "description": "Last Participation in Campaign",
+          "dataType": "Number",
+          "query": {
+            "type": "count",
+            "object": "event",
+            "select": [
+              "$timestamp"
+            ],
+            "sort": {
+              "dataType": "DateTime",
+              "field": "$timestamp",
+              "ascending": false
+            },
+            "where": [
+              {
+                "field": "$appUserId",
+                "value": "SOME_APP_USER_ID",
+                "operator": "Is"
+              },
+              {
+                "field": "params.$campaignId",
+                "value": "THIS_CAMPAIGN_ID",
+                "operator": "Is"
+              },
+              {
+                "field": "$timestamp",
+                "value": "CURRENT_TIMESTAMP",
+                "operator": "IsGreaterThan",
+                "interval": {
+                  "value": 30,
+                  "timeUnit": "Days",
+                  "addToValue": false
+                }
+              }
+            ]
+          },
+          "value": "query.count",
+          "operator": "Is",
+          "compareTo": 0
+        },
+        {
+          "description": "30 Day Usage",
+          "dataType": "Number",
+          "query": {
+            "type": "count",
+            "object": "event",
+            "select": [
+              "$timestamp"
+            ],
+            "sort": {
+              "dataType": "DateTime",
+              "field": "$timestamp",
+              "ascending": false
+            },
+            "where": [
+              {
+                "field": "$appUserId",
+                "value": "SOME_CAMPAIGN_ID",
+                "operator": "Is"
+              },
+              {
+                "field": "name",
+                "value": "$LogUsage",
+                "operator": "Is"
+              },
+              {
+                "field": "$timestamp",
+                "value": "CURRENT_TIMESTAMP",
+                "operator": "IsGreaterThan",
+                "interval": {
+                  "value": 30,
+                  "timeUnit": "Days",
+                  "addToValue": false
+                }
+              }
+            ],
+            "groupBy": {
+              "type": "day",
+              "field": "$timestamp"
+            }
+          },
+          "value": "query.count",
+          "operator": "IsGreaterThanOrEqualTo",
+          "compareTo": 3
+        }
+      ]
+    }
+  ],
+  "display": {
+    "type": "Popup",
+    "automatic": true,
+    "delay": 1000
+  },
+  "typeData": {
+    "survey": {
+      "displayProgress": false,
+      "introduction": null,
+      "questions": [
+        {
+          "id": "SURVEY-QUESTION-ID-1",
+          "friendlyId": "IsPositiveSentiment",
+          "dataType": "Boolean",
+          "template": "ThumbRating",
+          "title": "How are you liking Userbuddy?",
+          "required": true
+        },
+        {
+          "id": "SURVEY-QUESTION-ID-2",
+          "friendlyId": "FreeformSentiment",
+          "dataType": "String",
+          "template": "TextInput",
+          "title": "What could we do to improve Userbuddy?",
+          "required": false
+        }
+      ],
+      "conclusion": {
+        "title": "Thanks for your input!",
+        "subtitle": null,
+        "duration": 1000
+      }
+    }
+  }
+}

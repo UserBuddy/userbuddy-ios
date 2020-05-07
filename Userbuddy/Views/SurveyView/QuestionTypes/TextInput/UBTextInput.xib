@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UBTextInput" customModule="UserBuddy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSh-HD-oTU">
+                    <rect key="frame" x="32" y="64" width="350" height="31.5"/>
+                    <attributedString key="attributedText">
+                        <fragment content="How are you liking Userbuddy so far?">
+                            <attributes>
+                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <font key="NSFont" metaFont="systemBold" size="20"/>
+                                <font key="NSOriginalFont" metaFont="systemBold" size="20"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.3" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dL5-B6-Pc6">
+                    <rect key="frame" x="319" y="253.5" width="75" height="584.5"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                    <inset key="contentEdgeInsets" minX="12" minY="8" maxX="12" maxY="8"/>
+                    <state key="normal" title="Submit">
+                        <color key="titleColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="pressSubmit:" destination="iN0-l3-epB" eventType="touchUpInside" id="ida-T0-ueI"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIg-L3-kc3">
+                    <rect key="frame" x="229" y="253.5" width="74" height="30"/>
+                    <state key="normal" title="No Thanks">
+                        <color key="titleColor" red="0.1529411765" green="0.68235294120000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="pressNoThanks:" destination="iN0-l3-epB" eventType="touchUpInside" id="gkX-rc-Iql"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eG-oY-LhX" customClass="UBTextViewPadding" customModule="UserBuddy" customModuleProvider="target">
+                    <rect key="frame" x="20" y="111.5" width="374" height="118"/>
+                    <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="999" constant="118" id="7SR-6Q-A1E"/>
+                    </constraints>
+                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="dL5-B6-Pc6" secondAttribute="trailing" constant="20" id="0Bn-Ag-Gab"/>
+                <constraint firstItem="sSh-HD-oTU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="2uf-Ce-RPA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3eG-oY-LhX" secondAttribute="trailing" constant="20" id="Gg5-ZV-MIP"/>
+                <constraint firstItem="jIg-L3-kc3" firstAttribute="top" secondItem="dL5-B6-Pc6" secondAttribute="top" id="HGd-qb-U1M"/>
+                <constraint firstItem="dL5-B6-Pc6" firstAttribute="leading" secondItem="jIg-L3-kc3" secondAttribute="trailing" constant="16" id="Hz6-2I-Esx"/>
+                <constraint firstItem="3eG-oY-LhX" firstAttribute="top" secondItem="sSh-HD-oTU" secondAttribute="bottom" constant="16" id="TLj-Q5-K4A"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="dL5-B6-Pc6" secondAttribute="bottom" constant="24" id="cyD-wZ-cxq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="sSh-HD-oTU" secondAttribute="trailing" constant="32" id="gpD-E2-2fh"/>
+                <constraint firstItem="dL5-B6-Pc6" firstAttribute="top" secondItem="3eG-oY-LhX" secondAttribute="bottom" constant="24" id="jtu-kM-1N3"/>
+                <constraint firstItem="sSh-HD-oTU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="sFk-Ti-kHf"/>
+                <constraint firstItem="3eG-oY-LhX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="sVN-d6-7qO"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="noThanksButton" destination="jIg-L3-kc3" id="sC0-er-CeT"/>
+                <outlet property="questionTitle" destination="sSh-HD-oTU" id="XBZ-i7-YU4"/>
+                <outlet property="submitButton" destination="dL5-B6-Pc6" id="Ejj-QW-5B3"/>
+                <outlet property="textInputView" destination="3eG-oY-LhX" id="qVc-tn-2no"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="-93.75"/>
+        </view>
+    </objects>
+</document>
