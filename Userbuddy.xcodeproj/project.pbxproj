@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		120281812464E69E00245E87 /* UBChoiceOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120281802464E69E00245E87 /* UBChoiceOption.swift */; };
+		120281842464FD0B00245E87 /* UBTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120281832464FD0B00245E87 /* UBTheme.swift */; };
+		120281882465021000245E87 /* UBHexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120281872465021000245E87 /* UBHexColor.swift */; };
+		1202818A24650CEC00245E87 /* UBDeviceTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1202818924650CEC00245E87 /* UBDeviceTheme.swift */; };
+		1202818E2465141900245E87 /* UBThemeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1202818D2465141900245E87 /* UBThemeKit.swift */; };
 		12491B0D245E48B400189E92 /* Userbuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12491B03245E48B400189E92 /* Userbuddy.framework */; };
 		12491B12245E48B400189E92 /* UserBuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12491B11245E48B400189E92 /* UserBuddyTests.swift */; };
 		12491B14245E48B400189E92 /* UserBuddy.h in Headers */ = {isa = PBXBuildFile; fileRef = 12491B06245E48B400189E92 /* UserBuddy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -73,6 +77,10 @@
 
 /* Begin PBXFileReference section */
 		120281802464E69E00245E87 /* UBChoiceOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBChoiceOption.swift; sourceTree = "<group>"; };
+		120281832464FD0B00245E87 /* UBTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBTheme.swift; sourceTree = "<group>"; };
+		120281872465021000245E87 /* UBHexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBHexColor.swift; sourceTree = "<group>"; };
+		1202818924650CEC00245E87 /* UBDeviceTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBDeviceTheme.swift; sourceTree = "<group>"; };
+		1202818D2465141900245E87 /* UBThemeKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBThemeKit.swift; sourceTree = "<group>"; };
 		12491B03245E48B400189E92 /* Userbuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Userbuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12491B06245E48B400189E92 /* UserBuddy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserBuddy.h; sourceTree = "<group>"; };
 		12491B07245E48B400189E92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,6 +156,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		120281822464FCDA00245E87 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				120281832464FD0B00245E87 /* UBTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 		12491AF9245E48B400189E92 = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +234,7 @@
 		127F6377245F758A0049D5C2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				120281822464FCDA00245E87 /* Theme */,
 				127F63D42463A0120049D5C2 /* Properties */,
 				127F639E245FC2450049D5C2 /* Networking */,
 				127F639D245FC2260049D5C2 /* LogEvent */,
@@ -243,6 +260,8 @@
 				127F6393245FBBD40049D5C2 /* UBRequest.swift */,
 				127F63C324624B720049D5C2 /* UBDesignables.swift */,
 				127F63F12463DD340049D5C2 /* UBView.swift */,
+				120281872465021000245E87 /* UBHexColor.swift */,
+				1202818D2465141900245E87 /* UBThemeKit.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -254,6 +273,7 @@
 				127F638F245FB6290049D5C2 /* IPAddress.swift */,
 				127F6391245FB7A50049D5C2 /* UBDebug.swift */,
 				127F639F245FC4BE0049D5C2 /* UBLoadFile.swift */,
+				1202818924650CEC00245E87 /* UBDeviceTheme.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -608,11 +628,13 @@
 				127F63C02460FE610049D5C2 /* UBTextInput.swift in Sources */,
 				127F63F52464D7100049D5C2 /* UBMultipleChoice.swift in Sources */,
 				127F63E12463AF310049D5C2 /* UBClient.swift in Sources */,
+				1202818E2465141900245E87 /* UBThemeKit.swift in Sources */,
 				127F6390245FB6290049D5C2 /* IPAddress.swift in Sources */,
 				127F63EC2463CA880049D5C2 /* UBContentLinkView.swift in Sources */,
 				127F637A245F77600049D5C2 /* UBService.swift in Sources */,
 				127F637E245F7C8B0049D5C2 /* UBEnvironment.swift in Sources */,
 				127F63DC2463AC1E0049D5C2 /* UBPersonClient.swift in Sources */,
+				120281882465021000245E87 /* UBHexColor.swift in Sources */,
 				127F63C724624D4B0049D5C2 /* UBTextViewPadding.swift in Sources */,
 				127F638B245FA3780049D5C2 /* UBDeviceInfo.swift in Sources */,
 				12491B31245E4B0000189E92 /* UBSurveyView.swift in Sources */,
@@ -622,8 +644,10 @@
 				127F63B32460DC480049D5C2 /* UBModalContainer.swift in Sources */,
 				127F63E32463B5010049D5C2 /* UBCampaignsClient.swift in Sources */,
 				127F6385245F9E120049D5C2 /* UBDeviceExtension.swift in Sources */,
+				120281842464FD0B00245E87 /* UBTheme.swift in Sources */,
 				127F63D92463AB850049D5C2 /* UBEventsClient.swift in Sources */,
 				127F6389245FA2200049D5C2 /* UBDateExtensions.swift in Sources */,
+				1202818A24650CEC00245E87 /* UBDeviceTheme.swift in Sources */,
 				127F63B92460F2350049D5C2 /* UBThumbRating.swift in Sources */,
 				127F63F22463DD340049D5C2 /* UBView.swift in Sources */,
 				127F6383245F98500049D5C2 /* UBStringExtension.swift in Sources */,

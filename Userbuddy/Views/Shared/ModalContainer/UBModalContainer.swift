@@ -28,13 +28,14 @@ class UBModalContainer: UIView {
     
     // MARK: - View logic
     
-    func setupView() {
+    func setupView(invert: Bool = false) {
         let modalOverlay = UBModalBackgroundView(frame: bounds)
         self.insertSubview(modalOverlay, at: 0)
         
         let cardFrame = CGRect(x: bounds.minX, y: bounds.maxY, width: self.modalContent.bounds.width, height: self.modalContent.bounds.height)
         let cardContainer = UIView.initialize(using: "UBCardContainer", frame: cardFrame)
         if let cardContainer = cardContainer as? UBCardContainer {
+            cardContainer.setupView(invert: invert)
             self.modalContent.addSubview(cardContainer)
             self.cardContainer = cardContainer
         }

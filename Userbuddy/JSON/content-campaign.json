@@ -145,7 +145,8 @@
       "ctaText": "Schedule Now",
       "dismissText": "No Thanks",
       "linkUrl": "https://calendly.com/studiobliss/30min",
-      "required": false
+      "required": false,
+      "useInvertedTheme": true
     }
   }
 }

@@ -36,6 +36,7 @@ class UBThumbRating: UIView {
     
     func setProperties(question: UBQuestion, onPress: @escaping (Bool) -> Void) {
         self.questionText = question.title
+        self.questionTitle.apply(theme: Userbuddy.theme.title)
         self._onPress = onPress
     }
     

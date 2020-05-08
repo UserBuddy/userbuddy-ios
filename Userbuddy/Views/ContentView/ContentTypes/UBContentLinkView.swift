@@ -50,7 +50,13 @@ class UBContentLinkView: UIView {
     
     func setProperties(content: UBContent, pressCTA: @escaping () -> Void, pressDismiss: @escaping () -> Void) {
         self.titleText = content.title
+        self.title.apply(theme: Userbuddy.theme.inverted.title)
+        
         self.subtitleText = content.subtitle
+        self.subtitle.apply(theme: Userbuddy.theme.inverted.subtitle)
+        
+        self.ctaButton.apply(theme: Userbuddy.theme.inverted.primaryButton)
+        self.dismissButton.apply(theme: Userbuddy.theme.inverted.secondaryButton)
         
         self._onPressCTA = pressCTA
         

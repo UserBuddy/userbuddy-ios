@@ -26,7 +26,7 @@ class UBContentView: UIView {
                 let modalContainer = UIView.initialize(using: "UBModalContainer", frame: frame)
                 if let modalContainer = modalContainer as? UBModalContainer {
                     self.modalContainer = modalContainer
-                    modalContainer.setupView()
+                    modalContainer.setupView(invert: campaign.typeData.content!.useInvertedTheme)
                 }
                 self.addSubview(modalContainer)
             }

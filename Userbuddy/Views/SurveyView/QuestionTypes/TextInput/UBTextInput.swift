@@ -46,19 +46,23 @@ class UBTextInput: UIView {
     
     func setProperties(question: UBQuestion, onPress: @escaping (String) -> Void) {
         self.questionTitle.text = question.title
+        self.questionTitle.apply(theme: Userbuddy.theme.title)
+        
+        self.submitButton.apply(theme: Userbuddy.theme.primaryButton)
+        self.noThanksButton.apply(theme: Userbuddy.theme.secondaryButton)
+        
         self._onPress = onPress
         self._question = question
         if (question.required) {
             self.noThanksButton.removeFromSuperview()
         }
+        self.textInputView.becomeFirstResponder()
     }
     
     // MARK: - Required random stuff
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        self.textInputView.becomeFirstResponder()
     }
     
     public required init?(coder aDecoder: NSCoder) {

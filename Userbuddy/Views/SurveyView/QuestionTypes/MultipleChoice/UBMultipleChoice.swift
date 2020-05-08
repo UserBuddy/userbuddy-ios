@@ -48,11 +48,18 @@ class UBMultipleChoice: UIView {
     
     func setProperties(question: UBQuestion, onPress: @escaping (String) -> Void) {
         self.title.text = question.title
+        self.title.apply(theme: Userbuddy.theme.title)
+        
+        self.submitButton.apply(theme: Userbuddy.theme.primaryButton)
+        self.noThanksButton.apply(theme: Userbuddy.theme.secondaryButton)
+        
         self._onPress = onPress
+        
         self._question = question
         if (question.required) {
             self.noThanksButton.removeFromSuperview()
         }
+        
         stackView.arrangedSubviews.forEach { (sv) in
             sv.removeFromSuperview()
         }

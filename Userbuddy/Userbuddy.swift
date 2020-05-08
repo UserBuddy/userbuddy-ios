@@ -14,11 +14,15 @@ public class Userbuddy {
     fileprivate let eventsClient: UBEventsClient
     fileprivate let personClient: UBPersonClient
     fileprivate let campaignsClient: UBCampaignsClient
-    init(service _service: UBService) {
-        self.service = _service
+    fileprivate let lightTheme: UBTheme
+    fileprivate let darkTheme: UBTheme?
+    init(service: UBService, lightTheme: UBTheme, darkTheme: UBTheme?) {
+        self.service = service
         self.eventsClient = UBEventsClient()
         self.personClient = UBPersonClient()
         self.campaignsClient = UBCampaignsClient()
+        self.lightTheme = lightTheme
+        self.darkTheme = darkTheme
     }
     
     public static var instance: Userbuddy?
@@ -37,15 +41,29 @@ public class Userbuddy {
             return try! getCampaignsClient()
         }
     }
+    static var theme: UBTheme {
+        get {
+            let _instance = try! getInstance()
+            switch UBDeviceTheme.current {
+            case .light:
+                return _instance.lightTheme
+            case .dark:
+                if let darkTheme = _instance.darkTheme {
+                    return darkTheme
+                }
+                return _instance.lightTheme
+            }
+        }
+    }
     
     // MARK: - Public functions exposed through the SDK
     
-    public static func initialize(apiKey: String) {
+    public static func initialize(apiKey: String, lightTheme: UBTheme = UBTheme.standard, darkTheme: UBTheme? = nil) {
         UBDebug.log("Initializing")
         
         let service = UBService(apiKey: apiKey)
         
-        instance = Userbuddy(service: service)
+        instance = Userbuddy(service: service, lightTheme: lightTheme, darkTheme: darkTheme)
         
         events.trackUsage()
         campaigns.getEligble()
@@ -55,6 +73,14 @@ public class Userbuddy {
     
     
     // MARK: - Functions used internally within this file
+    
+    fileprivate static func getInstance() throws -> Userbuddy {
+        if let instance = instance {
+            return instance
+        } else {
+            throw "getInstance: SDK has not been initialized"
+        }
+    }
     
     fileprivate static func getEventClient() throws -> UBEventsClient {
         if let instance = instance {

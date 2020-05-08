@@ -40,6 +40,7 @@ class UBChoiceOption: UIView {
     
     func setProperties(optionId: String, optionText: String, onSelect: @escaping (String?) -> Void) {
         self.optionIdLabel.text = optionId
+        self.optionIdLabel.textColor = Userbuddy.theme.subtitle.color
         self._onSelect = onSelect
         self.optionButton.setTitle(optionText, for: .normal)
         self._optionText = optionText
@@ -48,11 +49,9 @@ class UBChoiceOption: UIView {
     func updateSelected(option: String?) {
         self._currentSelected = option
         if isSelected {
-            optionButton.backgroundColor = UIColor.systemBlue
-            optionButton.setTitleColor(UIColor.white, for: .normal)
+            optionButton.apply(theme: Userbuddy.theme.multipleChoiceButton.focus)
         } else {
-            optionButton.backgroundColor = UIColor.groupTableViewBackground
-            optionButton.setTitleColor(UIColor.black, for: .normal)
+            optionButton.apply(theme: Userbuddy.theme.multipleChoiceButton.idle)
         }
     }
 }

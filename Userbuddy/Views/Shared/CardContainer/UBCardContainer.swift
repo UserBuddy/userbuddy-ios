@@ -16,6 +16,14 @@ class UBCardContainer: UIView {
          super.init(frame: frame)
     }
     
+    public func setupView(invert: Bool) {
+        if invert {
+            self.backgroundColor = Userbuddy.theme.inverted.card
+        } else {
+            self.backgroundColor = Userbuddy.theme.card
+        }
+    }
+    
     public func setInnerContent(_ innerContent: UIView) {
         cardContent.subviews.forEach { (subview) in
             subview.removeFromSuperview()

@@ -45,6 +45,7 @@ struct UBSurvey: Codable {
 struct UBContent: Codable {
     let type, title, subtitle, ctaText, dismissText, linkUrl: String
     let required: Bool
+    let useInvertedTheme: Bool
 }
 
 // MARK: - Conclusion
