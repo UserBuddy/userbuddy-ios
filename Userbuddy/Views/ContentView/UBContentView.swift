@@ -23,8 +23,12 @@ class UBContentView: UIView {
         switch campaign.display.type {
         case "Popup":
             if campaign.display.type == "Popup" {
-                self.modalContainer = UBModalContainer(frame: frame, innerContent: self.activeContentView)
-                self.addSubview(self.modalContainer!)
+                let modalContainer = UIView.initialize(using: "UBModalContainer", frame: frame)
+                if let modalContainer = modalContainer as? UBModalContainer {
+                    self.modalContainer = modalContainer
+                    modalContainer.setupView()
+                }
+                self.addSubview(modalContainer)
             }
             break
         default:

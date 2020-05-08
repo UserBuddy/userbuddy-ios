@@ -27,8 +27,12 @@ public class UBSurveyView: UIView {
         switch campaign.display.type {
         case "Popup":
             if campaign.display.type == "Popup" {
-                self.modalContainer = UBModalContainer(frame: frame, innerContent: self.activeContentView)
-                self.addSubview(self.modalContainer!)
+                let modalContainer = UIView.initialize(using: "UBModalContainer", frame: frame)
+                if let modalContainer = modalContainer as? UBModalContainer {
+                    self.modalContainer = modalContainer
+                    modalContainer.setupView()
+                }
+                self.addSubview(modalContainer)
             }
             break
         default:
@@ -79,7 +83,7 @@ public class UBSurveyView: UIView {
     }
     
     fileprivate func display(question: UBQuestion) {
-        let innerContentContainer = modalContainer!.cardContainer!.cardContainer
+        let innerContentContainer = modalContainer!.cardContainer
         let frame = innerContentContainer!.bounds
         switch question.template {
         case "ThumbRating":
@@ -98,6 +102,16 @@ public class UBSurveyView: UIView {
             }
             let view = UIView.initialize(using: "UBTextInput", frame: frame)
             if let view = view as? UBTextInput {
+                view.setProperties(question: question, onPress: onPress)
+            }
+            modalContainer?.setInnerContent(view)
+            break
+        case "MultipleChoice":
+            let onPress: (String) -> Void = { (textInput) in
+                self.logResponse(textInput, question: question)
+            }
+            let view = UIView.initialize(using: "UBMultipleChoice", frame: frame)
+            if let view = view as? UBMultipleChoice {
                 view.setProperties(question: question, onPress: onPress)
             }
             modalContainer?.setInnerContent(view)

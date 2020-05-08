@@ -129,7 +129,20 @@
           "template": "TextInput",
           "title": "What could we do to improve Userbuddy?",
           "required": false
-        }
+        },
+        {
+          "id": "SURVEY-QUESTION-ID-3",
+          "friendlyId": "DeepValue",
+          "dataType": "String",
+          "template": "MultipleChoice",
+          "title": "How would you feel if you could no longer use Userbuddy?",
+          "required": false,
+          "options": [
+              "Very Disappointed",
+              "Somewhat Disappointed",
+              "Not Disappointed"
+          ]
+        },
       ],
       "conclusion": {
         "title": "Thanks for your input!",

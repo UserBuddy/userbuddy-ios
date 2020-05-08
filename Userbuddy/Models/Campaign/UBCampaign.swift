@@ -66,5 +66,6 @@ struct UBQuestion: Codable {
     let id, friendlyId, dataType, template: String
     let title: String
     let required: Bool
+    let options: [String]?
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120281812464E69E00245E87 /* UBChoiceOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120281802464E69E00245E87 /* UBChoiceOption.swift */; };
 		12491B0D245E48B400189E92 /* Userbuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12491B03245E48B400189E92 /* Userbuddy.framework */; };
 		12491B12245E48B400189E92 /* UserBuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12491B11245E48B400189E92 /* UserBuddyTests.swift */; };
 		12491B14245E48B400189E92 /* UserBuddy.h in Headers */ = {isa = PBXBuildFile; fileRef = 12491B06245E48B400189E92 /* UserBuddy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,6 +56,9 @@
 		127F63EE2463CB030049D5C2 /* UBContentLinkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 127F63ED2463CB030049D5C2 /* UBContentLinkView.xib */; };
 		127F63F02463D4450049D5C2 /* content-campaign.json in Resources */ = {isa = PBXBuildFile; fileRef = 127F63EF2463D4450049D5C2 /* content-campaign.json */; };
 		127F63F22463DD340049D5C2 /* UBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F63F12463DD340049D5C2 /* UBView.swift */; };
+		127F63F52464D7100049D5C2 /* UBMultipleChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F63F42464D7100049D5C2 /* UBMultipleChoice.swift */; };
+		127F63F72464D7280049D5C2 /* UBMultipleChoice.xib in Resources */ = {isa = PBXBuildFile; fileRef = 127F63F62464D7280049D5C2 /* UBMultipleChoice.xib */; };
+		127F63FA2464E3150049D5C2 /* UBChoiceOption.xib in Resources */ = {isa = PBXBuildFile; fileRef = 127F63F92464E3150049D5C2 /* UBChoiceOption.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		120281802464E69E00245E87 /* UBChoiceOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBChoiceOption.swift; sourceTree = "<group>"; };
 		12491B03245E48B400189E92 /* Userbuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Userbuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12491B06245E48B400189E92 /* UserBuddy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserBuddy.h; sourceTree = "<group>"; };
 		12491B07245E48B400189E92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,6 +124,9 @@
 		127F63ED2463CB030049D5C2 /* UBContentLinkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UBContentLinkView.xib; sourceTree = "<group>"; };
 		127F63EF2463D4450049D5C2 /* content-campaign.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "content-campaign.json"; sourceTree = "<group>"; };
 		127F63F12463DD340049D5C2 /* UBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBView.swift; sourceTree = "<group>"; };
+		127F63F42464D7100049D5C2 /* UBMultipleChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBMultipleChoice.swift; sourceTree = "<group>"; };
+		127F63F62464D7280049D5C2 /* UBMultipleChoice.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UBMultipleChoice.xib; sourceTree = "<group>"; };
+		127F63F92464E3150049D5C2 /* UBChoiceOption.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UBChoiceOption.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +342,7 @@
 		127F63B62460F1FD0049D5C2 /* QuestionTypes */ = {
 			isa = PBXGroup;
 			children = (
+				127F63F32464D6EB0049D5C2 /* MultipleChoice */,
 				127F63BC2460FE1E0049D5C2 /* TextInput */,
 				127F63B72460F2040049D5C2 /* ThumbRating */,
 			);
@@ -445,6 +454,25 @@
 			path = ContentTypes;
 			sourceTree = "<group>";
 		};
+		127F63F32464D6EB0049D5C2 /* MultipleChoice */ = {
+			isa = PBXGroup;
+			children = (
+				127F63F82464E2E70049D5C2 /* ChoiceOption */,
+				127F63F42464D7100049D5C2 /* UBMultipleChoice.swift */,
+				127F63F62464D7280049D5C2 /* UBMultipleChoice.xib */,
+			);
+			path = MultipleChoice;
+			sourceTree = "<group>";
+		};
+		127F63F82464E2E70049D5C2 /* ChoiceOption */ = {
+			isa = PBXGroup;
+			children = (
+				127F63F92464E3150049D5C2 /* UBChoiceOption.xib */,
+				120281802464E69E00245E87 /* UBChoiceOption.swift */,
+			);
+			path = ChoiceOption;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -544,6 +572,7 @@
 				127F63AA2460D1330049D5C2 /* UBModalBackgroundView.xib in Resources */,
 				12491B33245E4B4200189E92 /* UBSurveyView.xib in Resources */,
 				127F63F02463D4450049D5C2 /* content-campaign.json in Resources */,
+				127F63FA2464E3150049D5C2 /* UBChoiceOption.xib in Resources */,
 				127F6399245FC1B90049D5C2 /* survey-campaign.json in Resources */,
 				127F63BE2460FE310049D5C2 /* UBTextInput.xib in Resources */,
 				127F63BB2460F24B0049D5C2 /* UBThumbRating.xib in Resources */,
@@ -551,6 +580,7 @@
 				127F6387245F9F3B0049D5C2 /* iOSDeviceModelMapping.plist in Resources */,
 				127F63CB246251CE0049D5C2 /* thumb-down.png in Resources */,
 				127F63AE2460D40A0049D5C2 /* UBCardContainer.xib in Resources */,
+				127F63F72464D7280049D5C2 /* UBMultipleChoice.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,9 +602,11 @@
 				127F6394245FBBD40049D5C2 /* UBRequest.swift in Sources */,
 				127F63A5245FCF920049D5C2 /* UBCampaignViewManager.swift in Sources */,
 				127F63B02460D5510049D5C2 /* UBCardContainer.swift in Sources */,
+				120281812464E69E00245E87 /* UBChoiceOption.swift in Sources */,
 				127F63A0245FC4BE0049D5C2 /* UBLoadFile.swift in Sources */,
 				127F6380245F94600049D5C2 /* UBLogEvent.swift in Sources */,
 				127F63C02460FE610049D5C2 /* UBTextInput.swift in Sources */,
+				127F63F52464D7100049D5C2 /* UBMultipleChoice.swift in Sources */,
 				127F63E12463AF310049D5C2 /* UBClient.swift in Sources */,
 				127F6390245FB6290049D5C2 /* IPAddress.swift in Sources */,
 				127F63EC2463CA880049D5C2 /* UBContentLinkView.swift in Sources */,

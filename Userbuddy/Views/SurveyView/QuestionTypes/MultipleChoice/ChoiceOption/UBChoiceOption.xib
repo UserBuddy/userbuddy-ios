@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UBChoiceOption" customModule="Userbuddy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oBv-9X-hRE">
+                    <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o12-sj-080">
+                            <rect key="frame" x="56" y="7" width="81" height="42"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <inset key="contentEdgeInsets" minX="16" minY="12" maxX="16" maxY="12"/>
+                            <state key="normal" title="Option">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onSelect:" destination="iN0-l3-epB" eventType="touchUpInside" id="8rQ-mc-h7Q"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYE-dH-Dzv">
+                            <rect key="frame" x="34" y="19" width="10" height="18"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="o12-sj-080" firstAttribute="leading" secondItem="oBv-9X-hRE" secondAttribute="leading" constant="56" id="6GI-j3-ixm"/>
+                        <constraint firstAttribute="height" constant="56" id="Qq4-Sn-DCI"/>
+                        <constraint firstItem="o12-sj-080" firstAttribute="centerY" secondItem="oBv-9X-hRE" secondAttribute="centerY" id="Xav-Ud-gmV"/>
+                        <constraint firstItem="o12-sj-080" firstAttribute="leading" secondItem="aYE-dH-Dzv" secondAttribute="trailing" constant="12" id="iST-OY-g2d"/>
+                        <constraint firstItem="aYE-dH-Dzv" firstAttribute="centerY" secondItem="o12-sj-080" secondAttribute="centerY" id="l8L-nW-tAh"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="oBv-9X-hRE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="69K-Jj-FEC"/>
+                <constraint firstItem="oBv-9X-hRE" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="CTW-Wq-9ks"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="oBv-9X-hRE" secondAttribute="top" id="n83-KS-gzc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="oBv-9X-hRE" secondAttribute="trailing" id="wR1-dF-djf"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="optionButton" destination="o12-sj-080" id="Ftc-23-8jS"/>
+                <outlet property="optionIdLabel" destination="aYE-dH-Dzv" id="cpI-x6-i03"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="-70.3125"/>
+        </view>
+    </objects>
+</document>
