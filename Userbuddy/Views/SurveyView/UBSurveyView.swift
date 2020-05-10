@@ -74,7 +74,7 @@ public class UBSurveyView: UIView {
     
     fileprivate func display(introduction: UBIntroduction) {
         // TODO: display introduction
-        print(introduction)
+//        print(introduction)
     }
     
     fileprivate func display(conclusion: UBConclusion) {
