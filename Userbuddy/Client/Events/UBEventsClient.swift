@@ -24,7 +24,7 @@ public class UBEventsClient: UBClient {
     }
     
     func trackUsage() {
-        let event = UBLogEvent(name: "$LogUsage", params: [:])
+        let event = UBLogEvent(name: "$Usage", params: [:])
         self.send(using: event)
     }
     

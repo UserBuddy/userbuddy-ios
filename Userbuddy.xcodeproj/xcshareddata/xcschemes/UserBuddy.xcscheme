@@ -17,7 +17,7 @@
                BlueprintIdentifier = "12491B02245E48B400189E92"
                BuildableName = "Userbuddy.framework"
                BlueprintName = "Userbuddy"
-               ReferencedContainer = "container:UserBuddy.xcodeproj">
+               ReferencedContainer = "container:Userbuddy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "12491B0B245E48B400189E92"
                BuildableName = "UserbuddyTests.xctest"
                BlueprintName = "UserbuddyTests"
-               ReferencedContainer = "container:UserBuddy.xcodeproj">
+               ReferencedContainer = "container:Userbuddy.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -66,7 +66,7 @@
             BlueprintIdentifier = "12491B02245E48B400189E92"
             BuildableName = "Userbuddy.framework"
             BlueprintName = "Userbuddy"
-            ReferencedContainer = "container:UserBuddy.xcodeproj">
+            ReferencedContainer = "container:Userbuddy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <EnvironmentVariables>
@@ -89,7 +89,7 @@
             BlueprintIdentifier = "12491B02245E48B400189E92"
             BuildableName = "Userbuddy.framework"
             BlueprintName = "Userbuddy"
-            ReferencedContainer = "container:UserBuddy.xcodeproj">
+            ReferencedContainer = "container:Userbuddy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <EnvironmentVariables>
