@@ -32,5 +32,6 @@ class UBProperties {
     init(params _params: [String: Any]) {
         self._date = Date()
         self.params = _params
+        print(self.params);
     }
 }

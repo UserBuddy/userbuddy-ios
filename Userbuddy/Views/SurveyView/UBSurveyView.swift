@@ -132,9 +132,7 @@ public class UBSurveyView: UIView {
     }
     
     fileprivate func submit() {
-        responses.forEach { (event) in
-            Userbuddy.events.track(event: event)
-        }
+        Userbuddy.events.track(many: responses)
         
         Userbuddy.campaigns.complete(campaign!)
         self.removeFromSuperview()

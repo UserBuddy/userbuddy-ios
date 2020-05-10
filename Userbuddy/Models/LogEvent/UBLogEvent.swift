@@ -16,3 +16,13 @@ class UBLogEvent: UBProperties {
         super.init(params: _params)
     }
 }
+
+extension UBLogEvent {
+    func toJSON() -> [String: Any] {
+        return [
+            "name": self.name,
+            "timestamp": self.timestamp,
+            "params": self.params
+        ]
+    }
+}

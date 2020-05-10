@@ -15,9 +15,9 @@ struct UBPropertyValue {
             if _value is String {
                 return "String"
             } else if _value is Int {
-                return "Int"
+                return "Number"
             } else if _value is Float {
-                return "Float"
+                return "Number"
             } else if _value is Bool {
                 return "Boolean"
             }
@@ -28,7 +28,7 @@ struct UBPropertyValue {
         get {
             return [
                 "value": self._value,
-                "type": self._type!
+                "dataType": self._type!
             ]
         }
     }

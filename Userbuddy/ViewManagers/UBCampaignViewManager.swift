@@ -32,6 +32,10 @@ class UBCampaignManager {
     }
     
     static fileprivate func maybeDisplayNext() {
+        if isCampaignActivelyDisplayed {
+            return
+        }
+        
         if (campaigns.count > 0) {
             let campaignToShow = campaigns.first { (campaign) -> Bool in
                 return campaign.display.automatic

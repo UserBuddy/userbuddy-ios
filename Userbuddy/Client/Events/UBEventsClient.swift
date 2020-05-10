@@ -14,28 +14,29 @@ public class UBEventsClient: UBClient {
     
     public func track(named name: String, properties: [String:Any]) {
         let event = UBLogEvent(name: name, params: properties)
-        track(event: event)
+        track(single: event)
     }
     
     // MARK: - Functions used within the SDK, but not exposed externally
     
-    func track(event: UBLogEvent) {
-        send(using: event)
-    }
-    
     func trackUsage() {
         let event = UBLogEvent(name: "$Usage", params: [:])
-        self.send(using: event)
+        self.track(single: event)
+    }
+    
+    func track(single event: UBLogEvent) {
+        send(single: event)
+    }
+    
+    func track(many events: [UBLogEvent]) {
+        send(many: events)
     }
     
     // MARK: - Internal file functions
     
-    internal func send(using event: UBLogEvent) {
-        let data: [String: Any] = [
-            "name": event.name,
-            "timestamp": event.timestamp,
-            "params": event.params
-        ]
+    internal func send(single event: UBLogEvent) {
+        let data: [String: Any] = event.toJSON()
+        
         let onComplete: (Data?, URLResponse?, Error?) -> Void = { data, response, error in
             if let response = response as? HTTPURLResponse {
                 if (response.statusCode == 200) {
@@ -49,6 +50,29 @@ public class UBEventsClient: UBClient {
                 }
             }
         }
-        service.postRequest(path: "/event", json: data, completion: onComplete)
+        service.postRequest(path: "/events/single", json: data, completion: onComplete)
+    }
+    
+    internal func send(many events: [UBLogEvent]) {
+        let data: [String: Any] = [
+            "list": events.map({ (event) -> ([String : Any]) in
+                return event.toJSON()
+            })
+        ]
+        
+        let onComplete: (Data?, URLResponse?, Error?) -> Void = { data, response, error in
+            if let response = response as? HTTPURLResponse {
+                if (response.statusCode == 200) {
+                    UBDebug.log("\(events.count) events tracked successfully")
+                } else {
+                    if let error = error {
+                        UBDebug.log("\(events.count) events failed to log with status code \(response.statusCode): \(error.localizedDescription)")
+                    } else {
+                        UBDebug.log("\(events.count) events failed to log. An unknown error occured.")
+                    }
+                }
+            }
+        }
+        service.postRequest(path: "/events/many", json: data, completion: onComplete)
     }
 }

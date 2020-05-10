@@ -25,7 +25,7 @@ public class UBCampaignsClient: UBClient {
                 "$didParticipate": true
             ]
         )
-        Userbuddy.events.track(event: cpEvent)
+        Userbuddy.events.track(single: cpEvent)
         UBCampaignManager.remove(campaign: campaign)
     }
     
@@ -36,7 +36,7 @@ public class UBCampaignsClient: UBClient {
                 "$didParticipate": false
             ]
         )
-        Userbuddy.events.track(event: cpEvent)
+        Userbuddy.events.track(single: cpEvent)
         UBCampaignManager.remove(campaign: campaign)
     }
     
