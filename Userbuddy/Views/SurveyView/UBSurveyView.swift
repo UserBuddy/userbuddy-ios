@@ -13,7 +13,8 @@ public class UBSurveyView: UIView {
     var introShown = false
     var conclusionShown = false
     
-    var responses: [UBLogEvent] = []
+    var response: UBLogEvent?
+    var responseIndex: Int = 0
     var campaign: UBCampaign?
     
     var modalContainer: UBModalContainer?
@@ -23,6 +24,9 @@ public class UBSurveyView: UIView {
         self.init(frame: frame)
         
         self.campaign = campaign
+        self.response = UBLogEvent(name: "$SurveyQuestionResponse", params: [
+            "campaignId": self.campaign!.id
+        ])
         
         switch campaign.display.type {
         case "Popup":
@@ -46,7 +50,7 @@ public class UBSurveyView: UIView {
     
     fileprivate func setActiveContent() throws {
         if let campaign = campaign {
-            let currentIndex = responses.count
+            let currentIndex = self.responseIndex
             if let survey = campaign.typeData.survey {
                 if let intro = survey.introduction, !introShown {
                     display(introduction: intro)
@@ -122,17 +126,14 @@ public class UBSurveyView: UIView {
     }
     
     fileprivate func logResponse(_ questionResponse: Any, question: UBQuestion) {
-        let response = UBLogEvent(name: "$SurveyQuestionResponse", params: [
-            "$campaignId": self.campaign!.id,
-            "$questionId": question.id,
-            "$responseValue": questionResponse
-        ])
-        self.responses.append(response)
+        responseIndex += 1
+        
+        self.response!.add(property: questionResponse, withKey: question.id)
         try! self.setActiveContent()
     }
     
     fileprivate func submit() {
-        Userbuddy.events.track(many: responses)
+        Userbuddy.events.track(single: response!)
         
         Userbuddy.campaigns.complete(campaign!)
         self.removeFromSuperview()

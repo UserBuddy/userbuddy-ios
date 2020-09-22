@@ -35,6 +35,8 @@ public class UBEventsClient: UBClient {
     // MARK: - Internal file functions
     
     internal func send(single event: UBLogEvent) {
+        print("tracking single event")
+        print(event.params)
         let data: [String: Any] = event.toJSON()
         
         let onComplete: (Data?, URLResponse?, Error?) -> Void = { data, response, error in

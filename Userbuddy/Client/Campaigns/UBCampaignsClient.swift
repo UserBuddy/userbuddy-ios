@@ -21,8 +21,8 @@ public class UBCampaignsClient: UBClient {
     func complete(_ campaign: UBCampaign) {
         let cpEvent = UBLogEvent(
             name: "$CampaignParticipation", params: [
-                "$campaignId": campaign.id,
-                "$didParticipate": true
+                "campaignId": campaign.id,
+                "didParticipate": true
             ]
         )
         Userbuddy.events.track(single: cpEvent)
@@ -32,8 +32,8 @@ public class UBCampaignsClient: UBClient {
     func dismiss(_ campaign: UBCampaign) {
         let cpEvent = UBLogEvent(
             name: "$CampaignParticipation", params: [
-                "$campaignId": campaign.id,
-                "$didParticipate": false
+                "campaignId": campaign.id,
+                "didParticipate": false
             ]
         )
         Userbuddy.events.track(single: cpEvent)

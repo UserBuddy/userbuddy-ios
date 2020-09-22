@@ -33,4 +33,7 @@ class UBProperties {
         self._date = Date()
         self.params = _params
     }
+    func add(property: Any, withKey key: String) {
+        self._params[key] = try! UBPropertyValue(value: property)
+    }
 }
